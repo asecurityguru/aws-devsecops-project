@@ -6,7 +6,7 @@ phases:
   build:
     commands:
       - mvn verify sonar:sonar -Dsonar.projectKey=javaprojectaws -Dsonar.organization=javaprojectaws -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$TOKEN 
-      - sleep 5
+      - sleep 10
       - |- 
         quality_status=$(curl -s -u $TOKEN: https://sonarcloud.io/api/qualitygates/project_status?projectKey=javaprojectaws | jq -r '.projectStatus.status')
         echo "SonarCloud analysistatus is $quality_status"; 
